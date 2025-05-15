@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inscrição</title>
+  <link rel="stylesheet" href="static/index.css" />
+</head>
+<body>
+
+  <form id="inscricaoForm">
+    <img class="logo" src="static/logo_chapada (1).png" />
+    <h2>Inscreva-se na palestra:</h2>
+
+    <div class="palestra-info">
+    <p class="titulo-palestra">“Depressão: O que todo auditor deve saber?”</p>
+    <p class="medico">Pelo médico psiquiatra <span class="nome-medico">DR. Gustavo Arribas</span></p>
+    </div>
+
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="phone">Contato:</label>
+    <input type="text" id="phone" name="phone" required />
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label>Modalidade:</label>
+    <div class="radio-group">
+      <input type="radio" id="presencial" name="modalidade" value="Presencial" required />
+      <label for="presencial">Presencial</label>
+
+      <input type="radio" id="online" name="modalidade" value="Online" required />
+      <label for="online">Online</label>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        modalidade: document.querySelector('input[name="modalidade"]:checked').value
+      };
+
+      // Envio para seu backend Flask
+      try {
+        await fetch("/inscrever", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+      } catch (error) {
+        console.error("Erro ao enviar para o Flask:", error);
+      }
+
+      // Envio para StaticForms
+      const staticFormPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: "Modalidade: " + formData.modalidade,
+        accessKey: "2eda4945-6f1a-4b95-bf28-6e01f10c9bb3",
+        _subject: "Nova Inscrição"
+      };
+
+      try {
+        const response = await fetch("https://api.staticforms.xyz/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(staticFormPayload)
+        });
+
+        if (response.ok) {
+          window.location.href = "https://julia-albertim.github.io/fisco-inscricao/obrigado.html";
+        } else {
+          alert("Erro ao enviar o formulário para o StaticForms.");
+        }
+      } catch (error) {
+        console.error("Erro de conexão com o StaticForms:", error);
+        alert("Erro ao enviar para o email. Verifique a conexão.");
+      }
+    });
+  </script>
+
+</body>
+</html>
