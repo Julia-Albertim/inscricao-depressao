@@ -1,0 +1,130 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #1e6d34;
+    font-size: 13px;
+    font-weight: 550;
+    margin: 0;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; 
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Ajuste do título geral */
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #1e6d34;
+    font-size: 20px;
+}
+
+/* Container do bloco palestra */
+.palestra-info {
+    background: #eaf5ea;
+    border-left: 5px solid #1e6d34;
+    padding: 15px 20px;
+    border-radius: 8px;
+    max-width: 320px;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 2px 6px rgba(30, 109, 52, 0.15);
+}
+
+/* Título da palestra */
+.titulo-palestra {
+    font-size: 18px;
+    font-weight: 700;
+    color: #145214;
+    margin-bottom: 8px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Texto do médico */
+.medico {
+    font-size: 14px;
+    color: #1e6d34;
+    text-align: center;
+    margin: 0;
+}
+
+/* Nome do médico */
+.nome-medico {
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+}
+
+label {
+    display: block;
+    width: 100%;
+    text-align: left; 
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: calc(100% - 16px); 
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #1e6d34;
+    transform: scale(0.6);
+    cursor: pointer;
+}
+
+button {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    background: #1e6d34;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #218838;
+}
