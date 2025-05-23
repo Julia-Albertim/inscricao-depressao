@@ -108,8 +108,15 @@ input {
 
 .radio-group input[type="radio"] {
     accent-color: #1e6d34;
-    transform: scale(0.6);
     cursor: pointer;
+    transform: scale(0.6); /* tamanho normal no desktop */
+}
+
+/* Aumenta só no mobile */
+@media (max-width: 600px) {
+    .radio-group input[type="radio"] {
+        transform: scale(1.2);
+    }
 }
 
 button {
