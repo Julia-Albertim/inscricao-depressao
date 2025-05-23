@@ -9,7 +9,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Conexão mongo
-client = MongoClient("mongodb+srv://palestrafiscosaude:0Nhphv8t8CulS3xm@cluster0.lndwpwg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = MongoClient("mongodb+srv://Admin:Admin@cluster0.nazx3vn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
 db = client["inscricoesDB"]
 collection = db["inscricoes"]
 
